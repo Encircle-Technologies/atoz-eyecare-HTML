@@ -106,7 +106,7 @@
     @apply font-quasimoda;
   }
   .content p a {
-    @apply no-underline ease-in duration-300 delay-150 text-Fonts font-quasimoda;
+    @apply no-underline ease-in duration-300 delay-150 text-Green_2 font-quasimoda font-700 hover:text-Green_22;
   }
   .content p {
     @apply text-Fonts text-16 leading-26 font-300 tracking-04em not-italic relative block mb-20 last:mb-0;
@@ -213,6 +213,17 @@
   }
   .btn-green2:hover:before {
     @apply w-full left-0;
+  }
+
+  .btn-link {
+    @apply text-Green_22 relative duration-300 delay-150 ease-linear hover:text-Green_2;
+  }
+  .btn-link:before {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-Green_22 duration-300 delay-150 ease-linear;
+  }
+  .btn-link:hover:before {
+    @apply w-0 right-0;
   }
 
   .regular__transition {
@@ -346,12 +357,6 @@
   .announcement-bar .swiper-wrapper {
     @apply items-center;
   }
-  /* .announcement-bar .swiper-slide {
-    @apply opacity-0 invisible;
-  }
-  .announcement-bar .swiper-slide.swiper-slide-active {
-    @apply opacity-100 visible;
-  } */
   .announcement-bar p {
     @apply text-White font-700 tracking-04em;
   }
@@ -364,11 +369,8 @@
     @apply absolute top-0 -right-[28px] w-[1px] h-full bg-White;
   }
 
-  .home header.header {
-    @apply absolute bg-transparent;
-  }
   header.header {
-    @apply relative top-0 left-0 w-full z-999;
+    @apply absolute bg-transparent top-0 left-0 w-full z-999;
   }
   .logo a,
   .logo a svg {
@@ -389,7 +391,6 @@
   .navbar-toggler {
     @apply cursor-pointer;
   }
-  /* .navbar {} */
   .navbar .mobile-menu-main {
     @apply xl:flex xl:flex-wrap xl:justify-center xl:items-center xl:m-0 xl:p-0 xl:w-full;
   }
@@ -403,8 +404,8 @@
     @apply text-White;
   }
   .navbar ul > li:hover > a,
-  .navbar ul > li.parentitem-active > a,
-  .navbar ul > li.menuitem-active > a {
+  .navbar ul > li.current_page_parent > a,
+  .navbar ul > li.current-menu-item > a {
     @apply text-Green_2;
   }
   .navbar ul > li .submenu-button {
@@ -426,7 +427,7 @@
     @apply p-0 text-16 leading-26 tracking-04em text-White transition-all duration-500 ease-in-out before:hidden;
   }
   .navbar ul > li > ul.sub-menu li a:hover,
-  .navbar ul > li > ul.sub-menu li.menuitem-active a {
+  .navbar ul > li > ul.sub-menu li.current-menu-item > a {
     @apply text-Green_23;
   }
   
@@ -505,9 +506,6 @@
   .content-with-grid .card .overlay {
     @apply absolute bottom-0 left-0 w-full pt-80 px-20 pb-20 bg-green flex flex-col justify-end z-1 duration-300 delay-150 ease-linear;
   }
-  .content-with-grid .card:hover .overlay {
-    @apply bg-opacity-0;
-  }
   .content-with-grid .card .overlay .title h5 {
     @apply font-quasimoda
   }
@@ -535,6 +533,12 @@
   }
   .zigzag-img-content .landscape1 {
     @apply relative drop-shadow-menu lg:pt-[72.76%];
+  }
+  .zigzag-img-content .landscape2 {
+    @apply relative drop-shadow-menu lg:pt-[56.72%];
+  }
+  .zigzag-img-content .landscape3 {
+    @apply relative drop-shadow-menu lg:pt-[59.48%];
   }
   .zigzag-img-content .img img {
     @apply lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full lg:object-cover;
@@ -620,6 +624,12 @@
   .social-media li,
   .social-media a {
     @apply block leading-0
+  }
+  .social-media a img {
+    @apply duration-300 delay-150 ease-linear
+  }
+  .social-media a:hover img {
+    @apply scale-125
   }
   .social-media a svg path,
   .social-media a svg rect {
@@ -734,6 +744,72 @@
     @apply absolute top-0 left-0 w-full h-full bg-Green_22 bg-opacity-[0.97];
   }
   /* breadcrumb End */
+
+  /* general-ct-wbg Start */
+  .general-ct-wbg {
+    @apply relative w-full z-1;
+  }
+  .general-ct-wbg:before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center bg-[url('../../../assets/images/dotpattern.jpg')] mix-blend-multiply opacity-[0.28] -z-1;
+  }
+  .general-ct-wbg blockquote,
+  .general-ct-wbg blockquote p {
+    @apply uppercase text-20 italic leading-33 text-Fonts font-300 font-quasimoda m-0 mb-20 p-0;
+  }
+  .general-ct-wbg .content h3,
+  .general-ct-wbg .content h4,
+  .general-ct-wbg .content h5,
+  .general-ct-wbg .content h6 {
+    @apply font-quasimoda font-300 uppercase mb-10 last:mb-0
+  }
+  /* general-ct-wbg End */
+
+  /* dt-grid-wrapper Start */
+  .dt-grid-wrapper {
+    @apply relative z-1;
+  }
+  .dt-grid-wrapper:before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center bg-[url('../../../assets/images/dotpattern.jpg')] bg-fixed mix-blend-multiply opacity-[0.28] -z-1;
+  }
+  .dt-grid-wrapper .landscape {
+    @apply relative overflow-hidden lg:pt-[70.37%] z-1 w-full;
+  }
+  .dt-grid-wrapper .img img {
+    @apply lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full lg:object-cover;
+  }
+  .dt-grid-wrapper .overlay {
+    @apply absolute bottom-0 left-0 w-full pt-80 px-20 pb-20 bg-green flex flex-col justify-end z-1 duration-300 delay-150 ease-linear;
+  }
+  .dt-grid-wrapper .overlay .title h5 {
+    @apply font-quasimoda
+  }
+  .dt-grid-wrapper .card .title h5 {
+    @apply font-quasimoda font-700;
+  }
+  /* dt-grid-wrapper End */
+
+  /* staff Start */
+  .staff-wrapper .card {
+    @apply flex flex-col items-center justify-start m-0 p-0 w-full relative gap-5 text-center;
+  }
+  .staff-wrapper .card .portrait {
+    @apply relative w-full pt-[104.47%]
+  }
+  .staff-wrapper .card .img img {
+    @apply absolute top-0 left-0;
+  }
+  .staff-wrapper .card .overlay {
+    @apply absolute bottom-0 left-0 w-full pt-80 px-20 pb-20 bg-green flex flex-col justify-end z-1 duration-300 delay-150 ease-linear;
+  }
+  .staff-wrapper .card .overlay .title h5 {
+    @apply font-quasimoda
+  }
+  .staff-wrapper .card .title h5 {
+    @apply font-quasimoda font-700;
+  }
+  /* Staff End */
   
 }
 
