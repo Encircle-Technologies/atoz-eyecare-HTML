@@ -201,41 +201,22 @@ $(document).ready(function ($) {
         });
     }
 
-    // counter number
-    // if ($('.counter').length) {
-    //     var counted = 0;
-    //     $(window).scroll(function () {
-
-    //         var oTop = $('.counter-num').offset().top - window.innerHeight;
-    //         if (counted == 0 && $(window).scrollTop() > oTop) {
-    //             $('.percent').each(function () {
-    //                 var $this = $(this),
-    //                     countTo = $this.attr('data-count');
-    //                 $({
-    //                     countNum: $this.text()
-    //                 }).animate({
-    //                     countNum: countTo
-    //                 },
-
-    //                     {
-
-    //                         duration: 5000,
-    //                         easing: 'swing',
-    //                         step: function () {
-    //                             $this.text(Math.floor(this.countNum));
-    //                         },
-    //                         complete: function () {
-    //                             $this.text(this.countNum);
-    //                             //alert('finished');
-    //                         }
-
-    //                     });
-    //             });
-    //             counted = 1;
-    //         }
-
-    //     });
-    // }
+    // accordion Start
+    if($('.faq-wrapper').length) {
+        // $('.accordion > .accordion-item > .accordion-item-body').slideUp();
+        $('.accordion > .accordion-item:first-child > .accordion-item-body').slideDown();
+        $('.accordion > .accordion-item').click(function() {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active").find(".accordion-item-body").slideUp('fast');
+            } else {
+                $(".accordion > .accordion-item.active .accordion-item-body").slideUp('fast');
+                $(".accordion > .accordion-item.active").removeClass("active");
+                $(this).addClass("active").find(".accordion-item-body").slideDown('fast');
+            }
+            return false;
+        });
+    }
+    // accordion End
 
     // modal popup 
     if ($('.team').length) {
